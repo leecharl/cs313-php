@@ -13,17 +13,13 @@
     </head>
 
     <body>
-        
-<header>
-  <h2>Aaron's Board Game Bonanza</h2>
-</header>
+    <?php include 'header.php';?>
+    
+
 
 <section>
-  <nav>
-    <ul>
-      <li><a href="assignments.html">Assignments</a></li>
-    </ul>
-  </nav>
+    <?php include 'nav.php';?>
+ 
   
   <article>
     <h1>Five Tribes</h1>
@@ -45,10 +41,9 @@
   </article>
 </section>
 
-<footer>
-  <p>Aaron Lee CS313</p>
-</footer>
+<?php include 'footer.php';?>
 
 
-    </body>
+
+</body>
 </html>

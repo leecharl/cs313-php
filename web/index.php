@@ -18,11 +18,9 @@
 
 
 <section>
-  <nav>
-    <ul>
-      <li><a href="assignments.html">Assignments</a></li>
-    </ul>
-  </nav>
+<?php include 'nav.php';?>
+ 
+  
   
   <article>
     <h1>Five Tribes</h1>
