@@ -27,7 +27,7 @@
     <div class="container">
             <img src="images/fiveTribes.jpg"alt="Five Tribes" class="image">
             <div class="overlay">
-              <div class="text"><a href="assignments.html">Learn More</a></div>
+              <div class="text"><a href="assignments.php">Learn More</a></div>
             </div>
           </div>
     <p>Crossing into the Land of 1001 Nights, your caravan arrives at the fabled Sultanate of Naqala.<br><br>
