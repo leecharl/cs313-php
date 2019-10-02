@@ -39,9 +39,7 @@ $_SESSION["zip"] = '';
 
 
 <?php
-  function runMyFunction($title, $price) {
-    
-  }
+ 
   if (isset($_GET['addgame1'])) {
     $_SESSION["game1Name"] = "Marvel Champions";
     $_SESSION["game1Price"] = 50.99;

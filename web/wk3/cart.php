@@ -1,6 +1,19 @@
 <?php
 // Start the session
 session_start();
+
+
+
+if (isset($_GET['remove1'])) {
+  $_SESSION["game1Name"] = null;
+  $_SESSION["game1Price"] = null;
+  $_SESSION["hasCart"] = 1;
+}
+if (isset($_GET['remove2'])) {
+  $_SESSION["game2Name"] = null;
+  $_SESSION["game2Price"] = null;
+  $_SESSION["hasCart"] = 1;
+}
 ?>
 
 <!DOCTYPE html>
@@ -39,14 +52,16 @@ session_start();
         <a href="kill.php" onclick="confirm('are you sure?')">Empty Cart</a><br>
 
         <p>
-            Your cart 
+            Your cart includes: <br>
             <?php
     
                 if (isset( $_SESSION["game1Name"]) && !is_null($_SESSION["game1Name"])){
-                    echo $_SESSION["game1Name"] . " $" . $_SESSION["game1Price"] . "<br>";
+                    echo $_SESSION["game1Name"] . " $" . $_SESSION["game1Price"] . " ".
+                    "<a href='cart.php?remove1=true'>remove item</a>"."<br>";
                 }
                 if (isset( $_SESSION["game2Name"]) && !is_null($_SESSION["game2Name"])){
-                    echo $_SESSION["game2Name"] . " $" . $_SESSION["game2Price"] . "<br>";
+                    echo $_SESSION["game2Name"] . " $" . $_SESSION["game2Price"] . " ".
+                    "<a href='cart.php?remove2=true'>remove item</a>"."<br>";
                 }
             ?>
 
