@@ -22,7 +22,9 @@
  
   
   <article>
+    
     <h1>Assignments CS 313</h1>
+    <h3><a href="wk3/index.php">Prove 03</a></h3>
     <p>More to come!</p> 
 
 

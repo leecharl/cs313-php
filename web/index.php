@@ -30,6 +30,11 @@
           <div class="text"><a href="assignments.php">Learn More</a></div>
         </div>
       </div>
+      <?php 
+      
+      $list = array(0 => 17, 1 => 42);
+
+?>
     <p>Crossing into the Land of 1001 Nights, your caravan arrives at the fabled Sultanate of Naqala.<br><br>
     The old sultan just died and control of Naqala is up for grabs!<br><br>    
     The oracles foretold of strangers who would maneuver the Five Tribes to gain influence over the legendary city-state.<br><br>    
