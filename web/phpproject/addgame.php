@@ -7,6 +7,8 @@ session_start();
 
 ?>
 
+<?php include 'database.php';?>
+
 <!DOCTYPE html>
 <html>
 <head>

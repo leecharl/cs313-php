@@ -16,7 +16,7 @@ CREATE TABLE public.games
     published_year int,
     date_added date,
     bgg_link VARCHAR(500),
-    usersID INT NOT NULL REFERENCES public.users(usersID),
+    usersID INT NOT NULL REFERENCES public.users(usersID)
 );
 
 CREATE TABLE public.game_played
