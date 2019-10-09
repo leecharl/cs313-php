@@ -1,26 +1,30 @@
--- Create a new database called 'users'
--- Connect to the 'master' database to run this snippet
-USE master
-GO
--- Create the new database if it does not exist already
-IF NOT EXISTS (
-    SELECT name
-        FROM sys.databases
-        WHERE name = N'users'
-)
-CREATE DATABASE users
-GO
+CREATE TABLE public.users
+(
+    usersID SERIAL NOT NULL PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    display_name VARCHAR(100) NOT NULL, 
+    first_name VARCHAR(80) NOT NULL,
+    last_name VARCHAR(80) NOT NULL,
+    date date NOT NULL
+);
 
--- Create a new database called 'boardgame'
--- Connect to the 'master' database to run this snippet
-USE master
-GO
--- Create the new database if it does not exist already
-IF NOT EXISTS (
-    SELECT name
-        FROM sys.databases
-        WHERE name = N'boardgame'
-)
-CREATE DATABASE boardgame
-GO
+CREATE TABLE public.games
+(
+    gameID SERIAL NOT NULL PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    publisher VARCHAR(200),
+    published_year int,
+    date_added date,
+    bgg_link VARCHAR(500)
+);
+
+CREATE TABLE public.game_played
+(
+    game_playedID SERIAL NOT NULL PRIMARY KEY,
+    game_played_date date NOT NULL,
+    usersID INT NOT NULL REFERENCES public.users(usersID),
+    gameID INT NOT NULL REFERENCES public.games(gameID),
+    game_played_notes VARCHAR(4000)
+);
+
 
