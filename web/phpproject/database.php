@@ -7,10 +7,10 @@
 // $database = "public";
 
 // // Create connection
-// $conn = mysqli_connect($servername, $username, $password, $database);
+// $db = mysqli_connect($servername, $username, $password, $database);
 
 // // Check connection
-// if (!$conn) {
+// if (!$db) {
 //     die("Connection failed: " . mysqli_connect_error());
 // }
 //echo "Connected successfully";
@@ -32,9 +32,9 @@ try
   $dbPassword = $dbOpts["pass"];
   $dbName = ltrim($dbOpts["path"],'/');
 
-  $conn = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+  $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 catch (PDOException $ex)
 {

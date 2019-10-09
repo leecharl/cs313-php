@@ -11,7 +11,7 @@ $sesuserID = $_SESSION['userCheck'];
     
     <div class="fakeimg">
         <?php
-foreach ($conn->query("SELECT * FROM games where usersID = $sesuserID") as $row)
+foreach ($db->query("SELECT * FROM games where usersID = $sesuserID") as $row)
 {
   echo '<h3>' . $row['title'] . '</h3><br>';
   echo ' Publisher: ' . $row['publisher'] . ' ' . $row['published_year'] . '<br>';
