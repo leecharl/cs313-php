@@ -10,8 +10,8 @@ $bgg_link =   $_POST['url'];
 // echo $title . $publisher . $published_year . $bgg_link;
 // echo "<br><br><br>";
 
-$sql ="INSERT INTO games(title, publisher, published_year, date_added, bgg_link, usersID) 
-VALUES ('$title', '$publisher', $published_year, now(), '$bgg_link', 1)";
+$sql ="INSERT INTO games(title, publisher, published_year, date_added, bgg_link, usersid) 
+        VALUES ('$title', '$publisher', $published_year, now(), '$bgg_link', 1)";
 if(mysqli_query($db, $sql)){
     echo "Records added successfully.";
 } else{
