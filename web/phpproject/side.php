@@ -10,11 +10,11 @@ $sesuserID = $_SESSION['userCheck'];
 <div class="fakeimg">
   <?php 
 
-    // foreach ($db->query('SELECT title from games') as $row)
-    // {
-    //   echo 'user: ' . $row['title'];
-    //   echo '<br/>';
-    // }
+    foreach ($db->query('SELECT title from games usersID = 1 order by title asc') as $row)
+    {
+      echo 'title: ' . $row['title'] . " " . $row['gameID'];
+      echo '<br/>';
+    }
 
     foreach ($db->query("SELECT * FROM games where usersID = 1 order by title asc") as $row)
     {
