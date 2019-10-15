@@ -41,4 +41,9 @@ catch (PDOException $ex)
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
+//Check connection
+if (!$db) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+echo "Connected successfully";
 ?>
