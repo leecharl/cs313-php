@@ -14,8 +14,8 @@ $sesuserID = $_SESSION['userCheck'];
     foreach ($db->query("SELECT * FROM games where usersID = 1 order by title asc") as $row)
     {
        $gameIDloop = $row['gameID'];
-      $res = "SELECT count(*) as totalPlayed FROM game_played where gameID = $gameIDloop";
-      $result = $db->query($res);
+      // $res = "SELECT count(*) as totalPlayed FROM game_played where gameID = $gameIDloop";
+      // $result = $db->query($res);
       
 
       echo '<h3>' . "<a href='index.php?gameID=" . $gameIDloop . "'>" . $row['title'] . "</a></h3>"; 
