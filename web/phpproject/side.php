@@ -16,12 +16,12 @@ $sesuserID = $_SESSION['userCheck'];
     <div class="fakeimg">
         <?php 
 
-foreach ($db->query('SELECT title from games') as $row)
-{
-  echo 'user: ' . $row['title'];
-  echo '<br/>';
-}
-        /*
+// foreach ($db->query('SELECT title from games') as $row)
+// {
+//   echo 'user: ' . $row['title'];
+//   echo '<br/>';
+// }
+    
 foreach ($db->query("SELECT * FROM games where usersID = $sesuserID") as $row)
 {
   $gameIDloop = $row['gameID'];
@@ -38,6 +38,5 @@ foreach ($db->query("SELECT * FROM games where usersID = $sesuserID") as $row)
   echo ' BGG link: <a href="'. $row["bgg_link"]. '">Board Game Geek Link</a>';
   echo '<br/><br>';
 }
-*/
         ?>
     </div><br>
