@@ -1,5 +1,5 @@
 <div class="fakeimg">
-
+<form action="addgame.php?insert=true" method="post">
     <div class="form-group">
         <label for="title">Game Title: </label>
         <input id="title" class="form-control" type="text" name="title">
@@ -21,5 +21,5 @@
     </div>
     <br>
     <button type="submit">Submit</button>
-
+</form>
 </div>

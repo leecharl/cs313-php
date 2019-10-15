@@ -4,6 +4,7 @@ session_start();
 
 // Session variables
 $_SESSION['userCheck'] = 1;
+$removeGame=false;
 
 ?>
 
@@ -36,14 +37,24 @@ $_SESSION['userCheck'] = 1;
     <?php include 'navbar.php';?>
 </div>
 
-<!-- The flexible grid (content) -->
 <div class="row">
   <!-- Left Side -->
   <div class="side">
     <?php include 'side.php';?>
   </div>
+
+  <!-- Main Section -->
   <div class="main">
-     <?php include 'main.php';?>
+     <?php 
+     if(isset($_GET['removeGame']) == true){
+      include 'deletegame.php';
+     }else{
+         include 'main.php';
+     }
+     
+   
+     
+     ?>
   </div>
 </div>
 

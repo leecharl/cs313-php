@@ -3,7 +3,7 @@
 session_start();
 
 // Session variables
-
+$insert=false
 
 ?>
 
@@ -41,7 +41,15 @@ session_start();
     <?php include 'side.php';?>
   </div>
   <div class="main">
-     <?php include 'adminaddgame.php';?>
+     <?php 
+      if(isset($_GET['insert'])== true){
+        include 'insert.php';
+      }else{
+        include 'adminaddgame.php';
+
+      }
+     
+     ?>
   </div>
 </div>
 
