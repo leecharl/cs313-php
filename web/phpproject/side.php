@@ -16,7 +16,7 @@ $sesuserID = $_SESSION['userCheck'];
     <div class="fakeimg">
         <?php 
 
-foreach ($db->query('SELECT title games') as $row)
+foreach ($db->query('SELECT title from games') as $row)
 {
   echo 'user: ' . $row['title'];
   echo '<br/>';
