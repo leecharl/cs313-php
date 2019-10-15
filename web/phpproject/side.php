@@ -16,7 +16,7 @@ $sesuserID = $_SESSION['userCheck'];
        $gameIDloop = $row['gameID'];
       // $res = "SELECT count(*) as totalPlayed FROM game_played where gameID = $gameIDloop";
       // $result = $db->query($res);
-      
+      echo $gameIDloop . "<br>";
 
       echo '<h3>' . "<a href='index.php?gameID=" . $gameIDloop . "'>" . $row['title'] . "</a></h3>"; 
       // echo " (" . "<a href='index.php?removeGame=True&gameID=" . $row['gameID'] . "'>" . "-" . "</a>" . ")";  
