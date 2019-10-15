@@ -11,9 +11,9 @@ $sesuserID = $_SESSION['userCheck'];
   <?php 
 
 
-    foreach ($db->query("SELECT * FROM games where usersID = 1 order by title asc") as $row)
+    foreach ($db->query("SELECT * FROM games where usersid = 1 order by title asc") as $row)
     {
-       $gameIDloop = $row['gameID'];
+       $gameIDloop = $row['gameid'];
       // $res = "SELECT count(*) as totalPlayed FROM game_played where gameID = $gameIDloop";
       // $result = $db->query($res);
       echo $gameIDloop . "<br>";
