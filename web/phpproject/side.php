@@ -18,7 +18,7 @@ $sesuserID = $_SESSION['userCheck'];
       //  $result = $db->query($res);
       
 
-      echo '<h3>' . "<a href='index.php?gameID=" . $gameIDloop . "'>" . $row['title'] . "</a></h3>"; 
+      echo '<h3>' . "<a href='index.php?gameID=" . $gameIDloop . "'>" . $row['title'] . "</a>"; 
       echo " (" . "<a href='index.php?removeGame=True&gameID=" . $gameIDloop. "'>" . "-" . "</a>" . ")";  
       echo "</h3>";
       // while($row2 = $result->fetch_array())
