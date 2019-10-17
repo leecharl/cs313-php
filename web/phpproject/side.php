@@ -21,14 +21,15 @@ $sesuserID = $_SESSION['userCheck'];
     $statement = $db->query('SELECT gameid, title FROM games where usersid = 1 order by title asc');
     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     {
+      $idrow =  $row['gameid'];
       echo "<tr>";
       echo "<td>". "<a href='index.php?gameID=" . $row['gameid'] . "'>" . $row['title'] . "</a>" . "</td>";
       echo "<td>"." (" . "<a href='deletegame.php?removeGame=True&gameID=" . $row['gameid'] . "'>" . "-" . "</a>" . ")" . "</td>";
       echo "<td>"." (" . "<a href='addplay.php?gameID=" . $row['gameid'] . "'>" . "+" . "</a>" . ")" . "</td>";
-      echo "<td></td>";
+      echo "<td>" . $idrow . "</td>";
       echo "</tr>";
 
-      //$idrow =  $row['gameid'];
+      
      // $stmt = $db->query("SELECT count(*) as totalPlayed FROM game_played where gameid = 8");
       //$stmt->execute(['id' => $idrow]); 
      // $user = $stmt->fetch();
