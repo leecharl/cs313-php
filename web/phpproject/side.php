@@ -11,8 +11,8 @@ $sesuserID = $_SESSION['userCheck'];
   <?php 
 
 
-// $sql = "SELECT gameid, title FROM games where usersid = 1 order by title asc";
-// $result = $db->query($sql);
+$sql = "SELECT gameid, title FROM games where usersid = 1 order by title asc";
+$result = $db->query($sql);
 
 // while ($row = $result->fetch_assoc())
 // {
