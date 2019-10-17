@@ -22,12 +22,12 @@ $sesuserID = $_SESSION['userCheck'];
       // $resulttotal = $db->query($totalquery);
 
       $totalquery = $db->query('SELECT count(*) as totalPlayed FROM game_played where gameid =  :idrow');
-      while ($row2 = $totalquery->fetch(PDO::FETCH_ASSOC))
+      // while ($row2 = $totalquery->fetch(PDO::FETCH_ASSOC))
 
-      //while ($totalrow = $resulttotal->fetch_assoc())
-      {
-        echo "Total Plays: " . $row2['totalPlayed'] . "<br>";
-      }
+      // //while ($totalrow = $resulttotal->fetch_assoc())
+      // {
+      //   echo "Total Plays: " . $row2['totalPlayed'] . "<br>";
+      // }
     }
 
 
