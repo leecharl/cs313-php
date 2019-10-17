@@ -17,8 +17,8 @@ $sesuserID = $_SESSION['userCheck'];
       echo " (" . "<a href='deletegame.php?removeGame=True&gameID=" . $row['gameid'] . "'>" . "-" . "</a>" . ")" ;
       echo " (" . "<a href='addplay.php?gameID=" . $row['gameid'] . "'>" . "+" . "</a>" . ")" .  "</h3>";
 
-      $idrow =  $row['gameid'];
-      $stmt = $db->query("SELECT count(*) as totalPlayed FROM game_played where gameid = :id");
+      //$idrow =  $row['gameid'];
+      $stmt = $db->query("SELECT count(*) as totalPlayed FROM game_played where gameid = 8");
       $stmt->execute(['id' => $idrow]); 
 
       // while ($row2 = $stmt->fetch()) {
