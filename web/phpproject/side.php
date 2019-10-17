@@ -20,9 +20,10 @@ $sesuserID = $_SESSION['userCheck'];
       $idrow =  $row['gameid'];
       $stmt = $db->query("SELECT count(*) as totalPlayed FROM game_played where gameid = :id");
       $stmt->execute(['id' => $idrow]); 
-      while ($row2 = $stmt->fetch()) {
-        echo "Total Plays: " . $row2['totalPlayed'] . "<br>";
-      }
+
+      // while ($row2 = $stmt->fetch()) {
+      //   echo "Total Plays: " . $row2['totalPlayed'] . "<br>";
+      // }
 
 
       // $totalquery = "SELECT count(*) as totalPlayed FROM game_played where gameid =  $idrow";
