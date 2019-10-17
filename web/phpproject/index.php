@@ -6,6 +6,12 @@ session_start();
 $_SESSION['userCheck'] = 1;
 $removeGame=false;
 
+
+if(isset($_GET['gameadded']))
+{
+  $addedtitle = $_GET['gameadded'];
+}else
+  $addedtitle = '';  
 ?>
 
 
@@ -45,16 +51,22 @@ $removeGame=false;
 
   <!-- Main Section -->
   <div class="main">
-     <?php 
-     if(isset($_GET['removeGame']) == true){
-      include 'deletegame.php';
-     }else{
-         include 'main.php';
-     }
-     
-   
-     
-     ?>
+    <div class="fakeimg">
+      
+      <?php 
+      if(strlen($addedtitle) > 1){
+        echo $addedtitle . " has been added";
+      }
+      if(isset($_GET['removeGame']) == true){
+        include 'deletegame.php';
+       }else{
+           include 'main.php';
+       }
+      
+    
+      
+      ?>
+     </div>
   </div>
 </div>
 

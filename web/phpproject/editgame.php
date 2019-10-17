@@ -10,21 +10,16 @@ $_SESSION['userCheck'] = 1;
 
 
 
-if(isset($_GET['add']) == true){
-
-  //convert x/x/x date to x-x-x
-  $game_played_date = $_POST['game_played_date'];
-  $time = strtotime($game_played_date);
-  $newformat = date('Y-m-d',$time);
-
+if(isset($_GET['edit']) == true){
 
   $gameid = $_POST['gameID'];
+  $newtitle = $_POST['title'];
 
-  $sqlinsert = "INSERT INTO game_played (game_played_date, usersid, gameid, game_played_notes) VALUES ('$newformat', 1, $gameid, '')";
-  if(mysqli_query($db, $sqlinsert)){
-      echo "Records inserted successfully.";
+  $sqlupdate = "UPDATE games set title = '$newtitle' where gameid = $gameid";
+  if(mysqli_query($db, $sqlupdate)){
+    header("Location: index.php");
   } else{
-      echo "ERROR: Could not able to execute $sqlinsert. " . mysqli_error($db);
+      echo "ERROR: Could not able to execute $sqlupdate. " . mysqli_error($db);
   }
 }
 
@@ -32,7 +27,7 @@ if(isset($_GET['add']) == true){
 ?>
 <!-- dump the data from the post -->
 <?php 
-  //var_dump($_POST);
+  var_dump($_POST);
 ?>
 
 <?php 
@@ -90,7 +85,7 @@ else
       
         $sql = "SELECT gameid, title FROM games where gameid = $game_played_id";
         $result = $db->query($sql);
-        echo "<strong>Add a play for: ";
+        echo "<strong>Edit: ";
         while ($row = $result->fetch_assoc())
         { 
           echo $row['title'];
@@ -103,11 +98,14 @@ else
 
 
 
-        <form method="post" action="addplay.php?add=true">
+        <form method="post" action="editgame.php?edit=true">
+        <div class="form-group">
+            <label for="gamename">New Name:</label>
+            <input id="gamename" class="form-control" type="text" name="title">
+            <input type="hidden" name="gameID" value="<?php echo $game_played_id;?>">
+            <button type="submit">Submit</button>
+        </div>
         
-        <p>Date: <input type="text" id="datepicker" name="game_played_date"></p>
-        <input type="hidden" name="gameID" value="<?php echo $game_played_id;?>">
-        <button type="submit">Submit</button>
         </form>
 
 

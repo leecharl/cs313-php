@@ -15,9 +15,12 @@ if (isset($_GET['gameID'])) {
 <div class="fakeimg">
     <?php
         if($showGames){
-            foreach ($db->query("SELECT title from games where gameID = $gameID") as $titleRow)
+            foreach ($db->query("SELECT title, gameid from games where gameid = $gameID") as $titleRow)
             {
-               echo "<h4>" . $titleRow['title'] . "</h4><br>";
+               echo "<strong>" . $titleRow['title'] . "</strong>" . " ";
+               
+  echo  "<a href='editgame.php?gameID=" . $titleRow['gameid'] . "'>" . "Edit Game" . "</a><br><br>";
+
             }
             foreach ($db->query("SELECT g.*, 
                                 date_format(gp.game_played_date, '%m/%d/%Y') as game_played_date

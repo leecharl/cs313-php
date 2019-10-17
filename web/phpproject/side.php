@@ -11,23 +11,24 @@ $sesuserID = $_SESSION['userCheck'];
   <?php 
 
 
-    foreach ($db->query("SELECT * FROM games where usersid = 1 order by title asc") as $row)
-    {
-       $gameIDloop = $row['gameid'];
-      //  $res = "SELECT count(*) as totalPlayed FROM game_played where gameid = $gameIDloop";
-      //  $result = $db->query($res);
-      
+$sql = "SELECT gameid, title FROM games where usersid = 1 order by title asc";
+$result = $db->query($sql);
 
-      echo '<h3>' . "<a href='index.php?gameID=" . $gameIDloop . "'>" . $row['title'] . "</a>"; 
-      echo " (" . "<a href='index.php?removeGame=True&gameID=" . $gameIDloop. "'>" . "-" . "</a>" . ")";  
-      echo "</h3>";
-      // while($row2 = $result->fetch_array())
-      //   {
-      //     echo "Total Plays: " . $row2['totalPlayed'] . "<br>";
-      //   }
+while ($row = $result->fetch_assoc())
+{
+  echo "<h3>". "<a href='index.php?gameID=" . $row['gameid'] . "'>" . $row['title'] . "</a>";
+  echo " (" . "<a href='deletegame.php?removeGame=True&gameID=" . $row['gameid'] . "'>" . "-" . "</a>" . ")" ;
+  echo " (" . "<a href='addplay.php?gameID=" . $row['gameid'] . "'>" . "+" . "</a>" . ")" .  "</h3>";
 
-      echo ' BGG link: <a href="'. $row["bgg_link"]. '">Board Game Geek Link</a>';
-      echo '<br/><br>';
-    }
+  $idrow =  $row['gameid'];
+  $totalquery = "SELECT count(*) as totalPlayed FROM game_played where gameid =  $idrow";
+  $resulttotal = $db->query($totalquery);
+  while ($totalrow = $resulttotal->fetch_assoc())
+  {
+    echo "Total Plays: " . $totalrow['totalPlayed'] . "<br>";
+  }
+}
+
+
   ?>
 </div><br>

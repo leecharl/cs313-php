@@ -3,9 +3,13 @@
 session_start();
 
 // Session variables
-
+$_SESSION['userCheck'] = 1;
+$removeGame=false;
 
 ?>
+
+
+<?php include 'database.php';?>
 
 <!DOCTYPE html>
 <html>
@@ -38,6 +42,8 @@ session_start();
   <div class="side">
     <?php include 'side.php';?>
   </div>
+
+
   <div class="main">
      <?php include 'main.php';?>
   </div>
