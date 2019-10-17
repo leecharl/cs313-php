@@ -11,6 +11,7 @@ $sesuserID = $_SESSION['userCheck'];
   <table>
     <tr>
       <th>Game</th>
+      <th>Delete Game</th>
       <th>Add Play</th>
       <th>Total Plays</th>
     </tr>
@@ -24,6 +25,7 @@ $sesuserID = $_SESSION['userCheck'];
       echo "<td>". "<a href='index.php?gameID=" . $row['gameid'] . "'>" . $row['title'] . "</a>" . "</td>";
       echo "<td>"." (" . "<a href='deletegame.php?removeGame=True&gameID=" . $row['gameid'] . "'>" . "-" . "</a>" . ")" . "</td>";
       echo "<td>"." (" . "<a href='addplay.php?gameID=" . $row['gameid'] . "'>" . "+" . "</a>" . ")" . "</td>";
+      echo "<td></td>";
       echo "</tr>";
 
       //$idrow =  $row['gameid'];
