@@ -8,20 +8,29 @@ $sesuserID = $_SESSION['userCheck'];
 
     
 <div class="fakeimg">
+  <table>
+    <tr>
+      <th>Game</th>
+      <th>Add Play</th>
+      <th>Total Plays</th>
+    </tr>
+ 
   <?php 
 
     $statement = $db->query('SELECT gameid, title FROM games where usersid = 1 order by title asc');
     while ($row = $statement->fetch(PDO::FETCH_ASSOC))
     {
-      echo "<h3>". "<a href='index.php?gameID=" . $row['gameid'] . "'>" . $row['title'] . "</a>";
-      echo " (" . "<a href='deletegame.php?removeGame=True&gameID=" . $row['gameid'] . "'>" . "-" . "</a>" . ")" ;
-      echo " (" . "<a href='addplay.php?gameID=" . $row['gameid'] . "'>" . "+" . "</a>" . ")" .  "</h3>";
+      echo "<tr>";
+      echo "<td>". "<a href='index.php?gameID=" . $row['gameid'] . "'>" . $row['title'] . "</a>" . "</td>";
+      echo "<td>"." (" . "<a href='deletegame.php?removeGame=True&gameID=" . $row['gameid'] . "'>" . "-" . "</a>" . ")" . "</td>";
+      echo "<td>"." (" . "<a href='addplay.php?gameID=" . $row['gameid'] . "'>" . "+" . "</a>" . ")" . "</td>";
+      echo "</tr>";
 
       //$idrow =  $row['gameid'];
-      $stmt = $db->query("SELECT count(*) as totalPlayed FROM game_played where gameid = 8");
+     // $stmt = $db->query("SELECT count(*) as totalPlayed FROM game_played where gameid = 8");
       //$stmt->execute(['id' => $idrow]); 
-      $user = $stmt->fetch();
-      echo "total plays: " . $user['totalPlayed'];
+     // $user = $stmt->fetch();
+     // echo "total plays: " . $user['totalPlayed'];
       // while ($row2 = $stmt->fetch()) {
       //   echo "Total Plays: " . $row2['totalPlayed'] . "<br>";
       // }
@@ -41,4 +50,6 @@ $sesuserID = $_SESSION['userCheck'];
 
 
   ?>
+
+</table>
 </div><br>
