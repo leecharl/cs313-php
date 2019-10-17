@@ -9,10 +9,13 @@ $sesuserID = $_SESSION['userCheck'];
     
 <div class="fakeimg">
   <?php 
-    $sql = "SELECT gameid, title FROM games where usersid = 1 order by title asc";
-    $sideresult = $db->query($sql);
 
-    while ($row = $sideresult->fetch_assoc())
+    $statement = $db->query('SELECT gameid, title FROM games where usersid = 1 order by title asc');
+    while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+    // $sql = "SELECT gameid, title FROM games where usersid = 1 order by title asc";
+    // $sideresult = $db->query($sql);
+
+    // while ($row = $sideresult->fetch_assoc())
     {
     //   echo "<h3>". "<a href='index.php?gameID=" . $row['gameid'] . "'>" . $row['title'] . "</a>";
     //   echo " (" . "<a href='deletegame.php?removeGame=True&gameID=" . $row['gameid'] . "'>" . "-" . "</a>" . ")" ;
