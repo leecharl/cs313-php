@@ -18,11 +18,15 @@ $sesuserID = $_SESSION['userCheck'];
       echo " (" . "<a href='addplay.php?gameID=" . $row['gameid'] . "'>" . "+" . "</a>" . ")" .  "</h3>";
 
       $idrow =  $row['gameid'];
-      $totalquery = "SELECT count(*) as totalPlayed FROM game_played where gameid =  $idrow";
-      $resulttotal = $db->query($totalquery);
-      while ($totalrow = $resulttotal->fetch_assoc())
+      // $totalquery = "SELECT count(*) as totalPlayed FROM game_played where gameid =  $idrow";
+      // $resulttotal = $db->query($totalquery);
+
+      $totalquery = $db->query('SELECT count(*) as totalPlayed FROM game_played where gameid =  :idrow');
+      while ($row2 = $totalquery->fetch(PDO::FETCH_ASSOC))
+
+      //while ($totalrow = $resulttotal->fetch_assoc())
       {
-        echo "Total Plays: " . $totalrow['totalPlayed'] . "<br>";
+        echo "Total Plays: " . $row2['totalPlayed'] . "<br>";
       }
     }
 
