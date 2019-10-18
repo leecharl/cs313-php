@@ -10,6 +10,7 @@ $sesuserID = $_SESSION['userCheck'];
 
     
 <div class="fakeimg">
+  <?php echo "test stuff"; ?>
   <table>
     <tr>
       <th>Game</th>
@@ -71,7 +72,7 @@ $db = getDB();
       // {
       //   echo "Total Plays: " . $row2['totalPlayed'] . "<br>";
       // }
-    }
+   // }
 
 
   ?>
