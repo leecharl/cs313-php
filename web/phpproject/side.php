@@ -27,7 +27,7 @@ $db = getDB();
 
   foreach($rows as $row) 
   {
-    echo "<tr><td>".$row["title"] ."</td<td></td><td></td><td></td></tr>"
+    echo "<tr><td>".$row["title"] ."</td<td></td><td></td><td></td></tr>";
     // $idrow =  $row['gameid'];
     // echo "<tr>";
     // echo "<td>". "<a href='index.php?gameID=" . $row['gameid'] . "'>" . $row['title'] . "</a>" . "</td>";
