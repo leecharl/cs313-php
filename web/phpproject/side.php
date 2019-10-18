@@ -21,6 +21,7 @@ $sesuserID = $_SESSION["userCheck"];
   <?php 
 $userid = 1;
 $db = getDB();
+$db1 = getDB();
   $query = $db->prepare('SELECT gameid, title FROM games where usersid = :userid order by title asc');
   $query->execute(array(":userid" => $userid));
   $rows = $query->fetchALL(PDO::FETCH_ASSOC);
@@ -34,7 +35,7 @@ $db = getDB();
     echo "<td>"." (" . "<a href='deletegame.php?removeGame=True&gameID=" . $row["gameid"] . "'>" . "-" . "</a>" . ")" . "</td>";
     echo "<td>"." (" . "<a href='addplay.php?gameID=" . $row["gameid"] . "'>" . "+" . "</a>" . ")" . "</td>";
     
-    $playcountquery = $db->prepare('SELECT count(*) as totalPlayed FROM game_played where gameid = :idrow');
+    $playcountquery = $db1->prepare('SELECT count(*) as totalPlayed FROM game_played where gameid = :idrow');
     $playcountquery->execute(array(":idrow" => $idrow));
     $rows2 = $playcountquery->fetchALL(PDO::FETCH_ASSOC);
     foreach($rows2 as $row2) 
