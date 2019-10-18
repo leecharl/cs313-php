@@ -27,13 +27,14 @@ $db = getDB();
 
   foreach($rows as $row) 
   {
-    $idrow =  $row['gameid'];
-    echo "<tr>";
-    echo "<td>". "<a href='index.php?gameID=" . $row['gameid'] . "'>" . $row['title'] . "</a>" . "</td>";
-    echo "<td>"." (" . "<a href='deletegame.php?removeGame=True&gameID=" . $row['gameid'] . "'>" . "-" . "</a>" . ")" . "</td>";
-    echo "<td>"." (" . "<a href='addplay.php?gameID=" . $row['gameid'] . "'>" . "+" . "</a>" . ")" . "</td>";
-    echo "<td>" . $idrow . "</td>";
-    echo "</tr>";
+    echo "<tr><td>".$row["title"] ."</td<td></td><td></td><td></td></tr>"
+    // $idrow =  $row['gameid'];
+    // echo "<tr>";
+    // echo "<td>". "<a href='index.php?gameID=" . $row['gameid'] . "'>" . $row['title'] . "</a>" . "</td>";
+    // echo "<td>"." (" . "<a href='deletegame.php?removeGame=True&gameID=" . $row['gameid'] . "'>" . "-" . "</a>" . ")" . "</td>";
+    // echo "<td>"." (" . "<a href='addplay.php?gameID=" . $row['gameid'] . "'>" . "+" . "</a>" . ")" . "</td>";
+    // echo "<td>" . $idrow . "</td>";
+    // echo "</tr>";
   }
 
 
