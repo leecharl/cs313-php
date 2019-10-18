@@ -1,10 +1,12 @@
+<?php require('database.php');?>
+
 <?php
 $sesuserID = $_SESSION['userCheck'];
 
 
 ?>
 
-<?php require('database.php');?>
+
     
 <h2>Your Games</h2>
 
@@ -20,23 +22,23 @@ $sesuserID = $_SESSION['userCheck'];
     </tr>
  
   <?php 
-$userid = 1;
-$db = getDB();
-  $query = $db->prepare('SELECT gameid, title FROM games where usersid = :userid order by title asc');
-  $query->execute(array(":userid" => $userid));
-  $rows = $query->fetchALL(PDO::FETCH_ASSOC);
+// $userid = 1;
+// $db = getDB();
+//   $query = $db->prepare('SELECT gameid, title FROM games where usersid = :userid order by title asc');
+//   $query->execute(array(":userid" => $userid));
+//   $rows = $query->fetchALL(PDO::FETCH_ASSOC);
 
-  foreach($rows as $row) 
-  {
-    echo "<tr><td>".$row["title"] ."</td<td></td><td></td><td></td></tr>";
-    // $idrow =  $row['gameid'];
-    // echo "<tr>";
-    // echo "<td>". "<a href='index.php?gameID=" . $row['gameid'] . "'>" . $row['title'] . "</a>" . "</td>";
-    // echo "<td>"." (" . "<a href='deletegame.php?removeGame=True&gameID=" . $row['gameid'] . "'>" . "-" . "</a>" . ")" . "</td>";
-    // echo "<td>"." (" . "<a href='addplay.php?gameID=" . $row['gameid'] . "'>" . "+" . "</a>" . ")" . "</td>";
-    // echo "<td>" . $idrow . "</td>";
-    // echo "</tr>";
-  }
+//   foreach($rows as $row) 
+//   {
+//     echo "<tr><td>".$row["title"] ."</td<td></td><td></td><td></td></tr>";
+//     // $idrow =  $row['gameid'];
+//     // echo "<tr>";
+//     // echo "<td>". "<a href='index.php?gameID=" . $row['gameid'] . "'>" . $row['title'] . "</a>" . "</td>";
+//     // echo "<td>"." (" . "<a href='deletegame.php?removeGame=True&gameID=" . $row['gameid'] . "'>" . "-" . "</a>" . ")" . "</td>";
+//     // echo "<td>"." (" . "<a href='addplay.php?gameID=" . $row['gameid'] . "'>" . "+" . "</a>" . ")" . "</td>";
+//     // echo "<td>" . $idrow . "</td>";
+//     // echo "</tr>";
+//   }
 
 
 
