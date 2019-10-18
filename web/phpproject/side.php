@@ -28,19 +28,20 @@ $db1 = getDB();
 
   foreach($rows as $row) 
   {
-//     echo "<tr><td>".$row["title"] ."</td<td></td><td></td><td></td></tr>";
-    $idrow =  $row["gameid"];
+   
     echo "<tr>";
     echo "<td>". "<a href='index.php?gameID=" . $row["gameid"] . "'>" . $row["title"] . "</a>" . "</td>";
     echo "<td>"." (" . "<a href='deletegame.php?removeGame=True&gameID=" . $row["gameid"] . "'>" . "-" . "</a>" . ")" . "</td>";
     echo "<td>"." (" . "<a href='addplay.php?gameID=" . $row["gameid"] . "'>" . "+" . "</a>" . ")" . "</td>";
     
-    $playcountquery = $db1->prepare('SELECT count(*) as totalPlayed FROM game_played where gameid = :idrow');
+    $idrow =  $row["gameid"];
+    echo $idrow;
+    $playcountquery = $db1->prepare('SELECT count(*) as totalplayed FROM game_played where gameid = :idrow');
     $playcountquery->execute(array(":idrow" => $idrow));
     $rows2 = $playcountquery->fetchALL(PDO::FETCH_ASSOC);
-    foreach($rows2 as $row2) 
+    foreach($rows2 as $row) 
     {
-      echo "<td>" . $row2["totalPlayed"] . "</td>";
+      echo "<td>" . $row["totalplayed"] . "</td>";
     }
 
     echo "</tr>";
