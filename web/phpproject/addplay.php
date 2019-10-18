@@ -1,4 +1,4 @@
-<?php require 'database.php';?>
+<?php require('database.php');?>
 
 <?php
 // Start the session
@@ -87,15 +87,31 @@ else
   <div class="main">
       <div class="fakeimg">
       <?php
+
+
+        
+        $db = getDB();
+          $query = $db->prepare('SELECT title from games where gameid = :game_played_id');
+          $query->execute(array(":game_played_id" => $game_played_id));
+          $rows = $query->fetchALL(PDO::FETCH_ASSOC);
+
+          echo "<strong>Add a play for: ";
+          foreach($rows as $row) 
+          {
+
+            echo $row["title"];
+          }
+          echo "</strong><br>";
+
       
-        $sql = "SELECT gameid, title FROM games where gameid = $game_played_id";
-        $result = $db->query($sql);
-        echo "<strong>Add a play for: ";
-        while ($row = $result->fetch_assoc())
-        { 
-          echo $row['title'];
-        }
-        echo "</strong><br>";
+        // $sql = "SELECT gameid, title FROM games where gameid = $game_played_id";
+        // $result = $db->query($sql);
+        // echo "<strong>Add a play for: ";
+        // while ($row = $result->fetch_assoc())
+        // { 
+        //   echo $row['title'];
+        // }
+        // echo "</strong><br>";
       ?>
 
 
