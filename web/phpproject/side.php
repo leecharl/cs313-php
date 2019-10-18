@@ -33,7 +33,15 @@ $db = getDB();
     echo "<td>". "<a href='index.php?gameID=" . $row["gameid"] . "'>" . $row["title"] . "</a>" . "</td>";
     echo "<td>"." (" . "<a href='deletegame.php?removeGame=True&gameID=" . $row["gameid"] . "'>" . "-" . "</a>" . ")" . "</td>";
     echo "<td>"." (" . "<a href='addplay.php?gameID=" . $row["gameid"] . "'>" . "+" . "</a>" . ")" . "</td>";
-    echo "<td>" . $idrow . "</td>";
+    
+    $playcountquery = $db->prepare('SELECT count(*) as totalPlayed FROM game_played where gameid = :idrow');
+    $playcountquery->execute(array(":idrow" => $idrow));
+    $rows2 = $playcountquery->fetchALL(PDO::FETCH_ASSOC);
+    foreach($rows2 as $row2) 
+    {
+      echo "<td>" . $row2["totalPlayed"] . "</td>";
+    }
+
     echo "</tr>";
    }
 
