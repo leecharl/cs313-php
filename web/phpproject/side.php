@@ -35,7 +35,7 @@ $db1 = getDB();
     echo "<td>"." (" . "<a href='addplay.php?gameID=" . $row["gameid"] . "'>" . "+" . "</a>" . ")" . "</td>";
     
     $idrow =  $row["gameid"];
-    echo $idrow;
+    
     $playcountquery = $db1->prepare('SELECT count(*) as totalplayed FROM game_played where gameid = :idrow');
     $playcountquery->execute(array(":idrow" => $idrow));
     $rows2 = $playcountquery->fetchALL(PDO::FETCH_ASSOC);
