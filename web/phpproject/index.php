@@ -1,3 +1,4 @@
+<?php require('database.php');?>
 <?php
 // Start the session
 session_start();
@@ -14,8 +15,6 @@ if(isset($_GET['gameadded']))
   $addedtitle = '';  
 ?>
 
-
-<?php include 'database.php';?>
 
 
 <!DOCTYPE html>

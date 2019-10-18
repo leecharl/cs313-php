@@ -1,5 +1,3 @@
-<?php require('database.php');?>
-
 <?php
 $sesuserID = $_SESSION['userCheck'];
 
