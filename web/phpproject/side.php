@@ -11,7 +11,7 @@ $sesuserID = $_SESSION['userCheck'];
   <table>
     <tr>
       <th>Game</th>
-      <th>Delete Game</th>
+      <th>Del Game</th>
       <th>Add Play</th>
       <th>Total Plays</th>
     </tr>
