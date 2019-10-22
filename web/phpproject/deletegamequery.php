@@ -15,7 +15,7 @@
     $stmt = $db->prepare('DELETE FROM games WHERE gameid = :game_id;');
     $stmt->bindValue(':game_id', $game_id, PDO::PARAM_INT);
     $stmt->execute();
-    $new_page = "gameplays.php?gameID=$game_id";
+    $new_page = "index.php";
     header("Location: $new_page");
     die();
 ?>
