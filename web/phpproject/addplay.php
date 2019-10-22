@@ -96,7 +96,7 @@ else
 
 
         
-            $db = getDB();
+          $db = getDB();
           $query = $db->prepare('SELECT title from games where gameid = :game_played_id');
           $query->execute(array(":game_played_id" => $game_played_id));
           $rows = $query->fetchALL(PDO::FETCH_ASSOC);

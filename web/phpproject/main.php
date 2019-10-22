@@ -30,7 +30,7 @@ if (isset($_GET["gameID"])) {
                                 where g.gameID = $gameID
                                 order by game_played_date desc") as $row)
             {
-                echo "<div>" . $row["game_played_date"] . "</div>" . "<br>";
+                    
             }
         }
     ?>
