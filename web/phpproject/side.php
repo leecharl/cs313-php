@@ -28,7 +28,7 @@ $sesuserID = $_SESSION["userCheck"];
       echo "<td>". "<a href='gameplays.php?gameID=" . $row["gameid"] . "'>" . $row["title"] . "</a>" . "</td>";
       echo "<td>"." (" . "<a href='deletegame.php?gameID=" . $row["gameid"] . "'>" . "-" . "</a>" . ")" . "</td>";
       echo "<td>"." (" . "<a href='addplay.php?gameID=" . $row["gameid"] . "'>" . "+" . "</a>" . ")" . "</td>";
-      echo "<td>" . "<a href='" . $row["bgg_link"] . "'>Go</a>" . "</td>";
+      echo "<td>" . "<a href='" . $row["bgg_link"] . "' target='_blank'>Go</a>" . "</td>";
       $idrow =  $row["gameid"];
       
       $playcountquery = $db1->prepare('SELECT count(*) as totalplayed FROM game_played where gameid = :idrow');
