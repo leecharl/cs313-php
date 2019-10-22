@@ -82,7 +82,7 @@ $_SESSION['userCheck'] = 1;
         Inner JOIN game_played gp 
         on g.gameID = gp.gameID
         where g.gameID = :gameid
-        order by game_played_date desc');
+        order by game_played_date desc;');
         $query->execute(array(":gameid" => $gameid));
         $rows = $query->fetchALL(PDO::FETCH_ASSOC);
 
