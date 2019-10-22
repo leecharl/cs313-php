@@ -4,19 +4,25 @@
 
 
 <?php
+    $title = htmlspecialchars($_POST['title']);
+    $publisher = htmlspecialchars($_POST['publisher']);
+    $yearPublished = htmlspecialchars($_POST['yearPublished']);
+    $url = htmlspecialchars($_POST['url']);
 
+    require('database.php');
 
-// require('database.php');
+    $db = getDB();
 
-// $db = getDB();
+    $stmt = $db->prepare('INSERT INTO games(title, publisher, published_year, date_added, bgg_link, usersid) 
+                        VALUES (:title, :publisher, :published_year, now(), :url, 1 ;');
+    $stmt->bindValue(':title', $title, PDO::PARAM_INT);
+    $stmt->bindValue(':publisher', $publisher, PDO::PARAM_INT);
+    $stmt->bindValue(':yearPublished', $yearPublished, PDO::PARAM_INT);
+    $stmt->bindValue(':url', $url, PDO::PARAM_INT);
 
-// $stmt = $db->prepare('INSERT INTO games(title, publisher, published_year, date_added, bgg_link, usersid) 
-//                       VALUES (:title, :publisher, :published_year, now(), :bgg_link, 1 ;');
-// $stmt->bindValue(':game_id', $game_id, PDO::PARAM_INT);
-// $stmt->bindValue(':newformat', $newformat, PDO::PARAM_STR);
-// $stmt->execute();
-// $new_page = "addplay.php?gameID=$game_id";
-// header("Location: $new_page");
-// die();
+    $stmt->execute();
+    $new_page = "index.php";
+    header("Location: $new_page");
+    die();
 ?>
 
