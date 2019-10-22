@@ -77,7 +77,7 @@ $_SESSION['userCheck'] = 1;
         //get dates of plays
         $db = getDB();
         $query = $db->prepare('SELECT g.*, 
-        date_format(gp.game_played_date, "%m/%d/%Y") as game_played_date
+        to_char(game_played_date, "MM/DD/YY") as game_played_date
         FROM games g 
         Inner JOIN game_played gp 
         on g.gameID = gp.gameID
