@@ -42,5 +42,6 @@ $sesuserID = $_SESSION["userCheck"];
       echo "</tr>";
     }
   ?>
-</div>   
+  
 </table>
+</div> 
