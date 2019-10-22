@@ -11,7 +11,6 @@
     require('database.php');
     echo $title. "<br>";
     echo $publisher. "<br>";
-    echo $yearPublished. "<br>";
     echo $bgg_link. "<br>";
 
     $db = getDB();
