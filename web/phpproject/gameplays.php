@@ -81,7 +81,7 @@ ini_set("display_errors", 1);
         //get dates of plays
         $db = getDB();
         $query = $db->prepare('SELECT g.*, 
-        to_char(game_played_date, "MM/DD/YY") as game_played_date
+        game_played_date
         FROM games g 
         Inner JOIN game_played gp 
         on g.gameID = gp.gameID
@@ -92,7 +92,13 @@ ini_set("display_errors", 1);
 
         foreach($rows as $row) 
         {
-            echo "<div>" . $row["game_played_date"] . "</div>" . "<br>";
+            $gamedate =  $row["game_played_date"];
+            $time = strtotime($gamedate);
+            $newformat = date('m/d/yyyy',$time);
+           
+
+
+            echo "<div>" . $newformat . "</div>" . "<br>";
         }
 
       ?>
