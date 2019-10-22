@@ -6,7 +6,7 @@
 <?php
     $title = htmlspecialchars($_POST['title']);
     $publisher = htmlspecialchars($_POST['publisher']);
-    $yearPublished = htmlspecialchars($_POST['yearPublished']);
+    $yearPublished = $_POST['yearPublished'];
     $url = htmlspecialchars($_POST['url']);
 
     require('database.php');
