@@ -15,7 +15,7 @@ $_SESSION['userCheck'] = 1;
 <?php 
   //var_dump($_POST);
 ?>
-
+   
 <?php 
 if(isset($_GET['gameID']))
   $game_played_id = $_GET['gameID'];

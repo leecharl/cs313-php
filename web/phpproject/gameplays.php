@@ -58,6 +58,7 @@ ini_set("display_errors", 1);
     <?php include 'side.php';?>
   </div>
   <div class="main">
+
       <div class="fakeimg">
       <?php
 
@@ -74,7 +75,8 @@ ini_set("display_errors", 1);
 
             echo $row["title"];
         }
-        echo "</strong><br>";
+        echo "</strong>  ";
+        echo "<a href='editgame.php?gameID=$gameid'>edit title</a><br>"; 
 
 
 
