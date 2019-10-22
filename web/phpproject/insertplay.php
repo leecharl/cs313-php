@@ -24,7 +24,7 @@ $stmt = $db->prepare('INSERT INTO game_played(game_played_date, usersid, gameid)
 $stmt->bindValue(':game_id', $game_id, PDO::PARAM_INT);
 $stmt->bindValue(':newformat', $newformat, PDO::PARAM_STR);
 $stmt->execute();
-$new_page = "addplay.php?gameID=$game_id";
+$new_page = "gameplays.php?gameID=$game_id";
 header("Location: $new_page");
 die();
 ?>
