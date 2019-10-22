@@ -1,3 +1,8 @@
+<pre>
+<?php var_dump($_POST);?>
+</pre>
+
+
 <?php
 
 $game_id = htmlspecialchars($_POST['gameID']);
@@ -18,6 +23,3 @@ header("Location: $new_page");
 die();
 ?>
 
-<pre>
-<?php var_dump($_POST);?>
-</pre>
