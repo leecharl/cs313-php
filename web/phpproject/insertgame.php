@@ -15,10 +15,10 @@
 
     $stmt = $db->prepare('INSERT INTO games(title, publisher, published_year, date_added, bgg_link, usersid) 
                         VALUES (:title, :publisher, :published_year, now(), :url, 1 ;');
-    $stmt->bindValue(':title', $title, PDO::PARAM_INT);
-    $stmt->bindValue(':publisher', $publisher, PDO::PARAM_INT);
+    $stmt->bindValue(':title', $title, PDO::PARAM_STR);
+    $stmt->bindValue(':publisher', $publisher, PDO::PARAM_STR);
     $stmt->bindValue(':yearPublished', $yearPublished, PDO::PARAM_INT);
-    $stmt->bindValue(':url', $url, PDO::PARAM_INT);
+    $stmt->bindValue(':url', $url, PDO::PARAM_STR);
 
     $stmt->execute();
     $new_page = "index.php";
