@@ -10,31 +10,6 @@ $_SESSION['userCheck'] = 1;
 
 
 
-// if(isset($_GET['add']) == true){
-
-//   //convert x/x/x date to x-x-x
-//   $game_played_date = $_POST['game_played_date'];
-//   $time = strtotime($game_played_date);
-//   $newformat = date('Y-m-d',$time);
-
-
-//   $gameid = $_POST["gameID"];
-
-
-
-//   $sql = "INSERT INTO game_played (game_played_date, usersid, gameid) VALUES (?,?,?)";
-//   $stmt= $pdo->prepare($sql);
-//   $stmt->execute([$name, $surname, $sex]);
-
-//   $sqlinsert = "INSERT INTO game_played (game_played_date, usersid, gameid, game_played_notes) VALUES ('$newformat', 1, $gameid, '')";
-//   if(mysqli_query($db, $sqlinsert)){
-//       echo "Records inserted successfully.";
-//   } else{
-//       echo "ERROR: Could not able to execute $sqlinsert. " . mysqli_error($db);
-//   }
-// }
-
-
 ?>
 <!-- dump the data from the post -->
 <?php 

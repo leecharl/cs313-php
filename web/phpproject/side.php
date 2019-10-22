@@ -31,7 +31,7 @@ $db1 = getDB();
    
     echo "<tr>";
     echo "<td>". "<a href='gameplays.php?gameID=" . $row["gameid"] . "'>" . $row["title"] . "</a>" . "</td>";
-    echo "<td>"." (" . "<a href='deletegame.php?removeGame=True&gameID=" . $row["gameid"] . "'>" . "-" . "</a>" . ")" . "</td>";
+    echo "<td>"." (" . "<a href='deletegame.php?gameID=" . $row["gameid"] . "'>" . "-" . "</a>" . ")" . "</td>";
     echo "<td>"." (" . "<a href='addplay.php?gameID=" . $row["gameid"] . "'>" . "+" . "</a>" . ")" . "</td>";
     
     $idrow =  $row["gameid"];

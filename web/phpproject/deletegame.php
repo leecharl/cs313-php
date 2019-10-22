@@ -1,31 +1,30 @@
+<?php require('database.php');?>
 <?php include 'debug.php';?>
 <?php
 // Start the session
 session_start();
 
 // Session variables
+
 $_SESSION['userCheck'] = 1;
-$removeGame=false;
+
+
 
 ?>
-
-
-<?php include 'database.php';?>
-
+<!-- dump the data from the post -->
+<?php 
+  //var_dump($_POST);
+?>
 
 <?php 
-
-// $deletedID = $_GET['gameID'];
-// echo $deletedID;
-// $sql ="DELETE FROM game_played WHERE gameID = $deletedID";
-//     $sql ="DELETE FROM games WHERE gameID = $deletedID";
-// if(mysqli_query($db, $sql)){
-//     echo "Records Deleted successfully.";
-// } else{
-//     echo "ERROR: Could not able to execute $sql. " . mysqli_error($db);
-// }
-
+if(isset($_GET['gameID']))
+  $game_played_id = $_GET['gameID'];
+else
+  $game_played_id = $_POST['gameID']
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html>
@@ -37,8 +36,16 @@ $removeGame=false;
 <link rel="stylesheet" href="/css/wk3.css">
 <script src="/js/project.js"></script>
 
-
-
+<!-- for the date picker -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
 </head>
 <body>
 
@@ -58,10 +65,38 @@ $removeGame=false;
   <div class="side">
     <?php include 'side.php';?>
   </div>
-
-  
   <div class="main">
-     Delete stuff
+      <div class="fakeimg">
+      <?php
+
+
+        
+          $db = getDB();
+          $query = $db->prepare('SELECT title from games where gameid = :game_played_id');
+          $query->execute(array(":game_played_id" => $game_played_id));
+          $rows = $query->fetchALL(PDO::FETCH_ASSOC);
+
+          echo "<strong>Are you sure you want to Delete: ";
+          foreach($rows as $row) 
+          {
+
+            echo $row["title"];
+          }
+          echo "</strong><br>";
+
+      ?>
+
+        <form method="post" action="deletegamequery.php">        
+          <input type="hidden" name="gameID" value="<?php echo $game_played_id;?>">
+          <button type="submit">YES</button><br>
+          <a href="index.php">Cancel</a>
+        </form>
+
+
+
+
+      </div>
+    
   </div>
 </div>
 
