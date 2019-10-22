@@ -2,7 +2,7 @@
 <?php var_dump($_POST);?>
 </pre>
 
-
+<?php include 'debug.php';?>
 <?php
     $title = htmlspecialchars($_POST['title']);
     $publisher = htmlspecialchars($_POST['publisher']);

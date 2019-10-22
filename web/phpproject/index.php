@@ -1,4 +1,5 @@
 <?php require('database.php');?>
+<?php include 'debug.php';?>
 <?php
 // Start the session
 session_start();

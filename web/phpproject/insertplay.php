@@ -1,7 +1,7 @@
 <pre>
 <?php var_dump($_POST);?>
 </pre>
-
+<?php include 'debug.php';?>
 
 <?php
 

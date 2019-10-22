@@ -8,7 +8,7 @@ $removeGame=false;
 
 ?>
 
-
+<?php include 'debug.php';?>
 <?php include 'database.php';?>
 
 <?php 
