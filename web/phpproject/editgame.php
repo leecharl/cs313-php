@@ -10,18 +10,6 @@ $_SESSION['userCheck'] = 1;
 
 
 
-if(isset($_GET['edit']) == true){
-
-  $gameid = $_POST['gameID'];
-  $newtitle = $_POST['title'];
-
-  $sqlupdate = "UPDATE games set title = '$newtitle' where gameid = $gameid";
-  if(mysqli_query($db, $sqlupdate)){
-    header("Location: index.php");
-  } else{
-      echo "ERROR: Could not able to execute $sqlupdate. " . mysqli_error($db);
-  }
-}
 
 
 ?>
@@ -55,11 +43,7 @@ else
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-  $( function() {
-    $( "#datepicker" ).datepicker();
-  } );
-  </script>
+ 
 </head>
 <body>
 
@@ -82,29 +66,26 @@ else
   <div class="main">
       <div class="fakeimg">
       <?php
-      
-        $sql = "SELECT gameid, title FROM games where gameid = $game_played_id";
-        $result = $db->query($sql);
-        echo "<strong>Edit: ";
-        while ($row = $result->fetch_assoc())
-        { 
-          echo $row['title'];
-        }
-        echo "</strong><br>";
+      $gameid = $_GET["gameID"];
+      $db1 = getDB();
+      $query = $db1->prepare('SELECT title from games where gameid = :gameid');
+      $query->execute(array(":gameid" => $gameid));
+      $rows = $query->fetchALL(PDO::FETCH_ASSOC);
+
+      echo "Current title: ";
+      foreach($rows as $row) 
+      {
+
+          echo $row["title"];
+      }
       ?>
-
-
-
-
-
-
-        <form method="post" action="editgame.php?edit=true">
-        <div class="form-group">
-            <label for="gamename">New Name:</label>
+        <form method="post" action="updategame.php">
+          <div class="form-group">
+            <label for="gamename"> New Name:</label>
             <input id="gamename" class="form-control" type="text" name="title">
-            <input type="hidden" name="gameID" value="<?php echo $game_played_id;?>">
+            <input type="hidden" name="gameid" value="<?php echo $gameid;?>">
             <button type="submit">Submit</button>
-        </div>
+          </div>
         
         </form>
 
