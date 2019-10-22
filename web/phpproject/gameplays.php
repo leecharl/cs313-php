@@ -94,11 +94,11 @@ ini_set("display_errors", 1);
         {
             $gamedate =  $row["game_played_date"];
             $time = strtotime($gamedate);
-            $newformat = date('m/d/yyyy',$time);
+            $newformat = date('M d, Y ',$time);
            
 
 
-            echo "<div>" . $newformat . "</div>" . "<br>";
+            echo "<div>" . $newformat . "</div>";
         }
 
       ?>
