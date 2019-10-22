@@ -10,23 +10,29 @@ $_SESSION['userCheck'] = 1;
 
 
 
-if(isset($_GET['add']) == true){
+// if(isset($_GET['add']) == true){
 
-  //convert x/x/x date to x-x-x
-  $game_played_date = $_POST['game_played_date'];
-  $time = strtotime($game_played_date);
-  $newformat = date('Y-m-d',$time);
+//   //convert x/x/x date to x-x-x
+//   $game_played_date = $_POST['game_played_date'];
+//   $time = strtotime($game_played_date);
+//   $newformat = date('Y-m-d',$time);
 
 
-  $gameid = $_POST['gameID'];
+//   $gameid = $_POST["gameID"];
 
-  $sqlinsert = "INSERT INTO game_played (game_played_date, usersid, gameid, game_played_notes) VALUES ('$newformat', 1, $gameid, '')";
-  if(mysqli_query($db, $sqlinsert)){
-      echo "Records inserted successfully.";
-  } else{
-      echo "ERROR: Could not able to execute $sqlinsert. " . mysqli_error($db);
-  }
-}
+
+
+//   $sql = "INSERT INTO game_played (game_played_date, usersid, gameid) VALUES (?,?,?)";
+//   $stmt= $pdo->prepare($sql);
+//   $stmt->execute([$name, $surname, $sex]);
+
+//   $sqlinsert = "INSERT INTO game_played (game_played_date, usersid, gameid, game_played_notes) VALUES ('$newformat', 1, $gameid, '')";
+//   if(mysqli_query($db, $sqlinsert)){
+//       echo "Records inserted successfully.";
+//   } else{
+//       echo "ERROR: Could not able to execute $sqlinsert. " . mysqli_error($db);
+//   }
+// }
 
 
 ?>
@@ -103,23 +109,9 @@ else
           }
           echo "</strong><br>";
 
-      
-        // $sql = "SELECT gameid, title FROM games where gameid = $game_played_id";
-        // $result = $db->query($sql);
-        // echo "<strong>Add a play for: ";
-        // while ($row = $result->fetch_assoc())
-        // { 
-        //   echo $row['title'];
-        // }
-        // echo "</strong><br>";
       ?>
 
-
-
-
-
-
-        <form method="post" action="addplay.php?add=true">
+        <form method="post" action="insertplay.php">
         
         <p>Date: <input type="text" id="datepicker" name="game_played_date"></p>
         <input type="hidden" name="gameID" value="<?php echo $game_played_id;?>">
