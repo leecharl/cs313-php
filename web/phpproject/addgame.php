@@ -75,7 +75,7 @@ if(isset($_GET['add']) == true){
   
   <div class="main">
     <div class="fakeimg">
-      <form action="addgame.php?add=true" method="post">
+      <form action="insertgame.php" method="post">
         <div class="form-group">
           <label for="title">Game Title: </label>
           <input id="title" class="form-control" type="text" name="title">
