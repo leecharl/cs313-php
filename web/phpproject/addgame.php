@@ -6,30 +6,6 @@ session_start();
 
 // Session variables
 $_SESSION['userCheck'] = 1;
-$removeGame=false;
-
-if(isset($_GET['add']) == true){
-  //date convert
-  $gamedate = date("Y-m-d");
-  $time = strtotime($gamedate);
-  $newformat = date('Y-m-d',$time);
-
-  $title =  $_POST['title'];
-  $publisher =   $_POST['publisher'];
-  $published_year =   $_POST['yearPublished'];
-  $bgg_link =   $_POST['url'];
-
-  $sqlinsert = "INSERT INTO games(title, publisher, published_year, date_added, bgg_link, usersid) 
-  VALUES ('$title', '$publisher', $published_year, 
-  '$newformat', 
-  '$bgg_link', 1);";
-  if(mysqli_query($db, $sqlinsert)){
-      
-  } else{
-      echo "ERROR: Could not able to execute $sqlinsert. " . mysqli_error($db);
-  }
-
-}
 
 
 
@@ -88,12 +64,12 @@ if(isset($_GET['add']) == true){
         <br>
         <div class="form-group">
           <label for="yearPublished">Year Published: </label>
-          <input id="yearPublished" class="form-control" type="number" name="yearPublished">
+          <input id="yearPublished" class="form-control" type="text" name="yearPublished">
         </div>
         <br>
         <div class="form-group">
           <label for="url">BGG Link: </label>
-          <input id="url" class="form-control" type="text" name="url">
+          <input id="url" class="form-control" type="url" name="url">
         </div>
         <br>
         <button type="submit">Submit</button>
