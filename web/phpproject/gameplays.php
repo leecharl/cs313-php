@@ -12,6 +12,10 @@ $_SESSION['userCheck'] = 1;
 <!-- dump the data from the post -->
 <?php 
   //var_dump($_POST);
+
+
+  error_reporting(E_ALL);
+ini_set("display_errors", 1);
 ?>
 
 <!DOCTYPE html>
