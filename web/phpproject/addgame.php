@@ -63,11 +63,6 @@ $_SESSION['userCheck'] = 1;
         </div>
         <br>
         <div class="form-group">
-          <label for="yearPublished">Year Published: </label>
-          <input id="yearPublished" class="form-control" type="text" name="yearPublished">
-        </div>
-        <br>
-        <div class="form-group">
           <label for="url">BGG Link: </label>
           <input id="url" class="form-control" type="url" name="url">
         </div>
