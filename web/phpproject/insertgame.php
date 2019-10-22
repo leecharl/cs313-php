@@ -20,7 +20,7 @@
     VALUES (:title, :publisher, :gamedate, :bgg_link, 1;');
     $stmt1->bindValue(':title', $title, PDO::PARAM_STR);
     $stmt1->bindValue(':publisher', $publisher, PDO::PARAM_STR);
-    $stmt->bindValue(':gamedate', $gamedate, PDO::PARAM_STR);
+    $stmt1->bindValue(':gamedate', $gamedate, PDO::PARAM_STR);
     $stmt1->bindValue(':bgg_link', $bgg_link, PDO::PARAM_STR);
 
     $stmt1->execute();
