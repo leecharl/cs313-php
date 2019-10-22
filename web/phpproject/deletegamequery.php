@@ -12,6 +12,10 @@
 
     $db = getDB();
 
+    $stmt = $db->prepare('DELETE FROM game_played WHERE gameid = :game_id;');
+    $stmt->bindValue(':game_id', $game_id, PDO::PARAM_INT);
+    $stmt->execute();
+
     $stmt = $db->prepare('DELETE FROM games WHERE gameid = :game_id;');
     $stmt->bindValue(':game_id', $game_id, PDO::PARAM_INT);
     $stmt->execute();

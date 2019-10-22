@@ -10,12 +10,11 @@ $_SESSION['userCheck'] = 1;
 
 
 
-
-
+  
 ?>
 <!-- dump the data from the post -->
 <?php 
-  var_dump($_POST);
+  //var_dump($_POST);
 ?>
 
 <?php 
