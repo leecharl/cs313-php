@@ -17,3 +17,7 @@ $new_page = "addplay.php?gameID=$game_id";
 header("Location: $new_page");
 die();
 ?>
+
+<pre>
+<?php var_dump($_POST);?>
+</pre>
