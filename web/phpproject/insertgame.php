@@ -17,7 +17,7 @@
     $db = getDB();
 
     $stmt1 = $db->prepare('INSERT INTO games(title, publisher, date_added, bgg_link, usersid) 
-    VALUES (:title, :publisher, :gamedate, :bgg_link, 1;');
+    VALUES (:title, :publisher, :gamedate, :bgg_link, 1);');
     $stmt1->bindValue(':title', $title, PDO::PARAM_STR);
     $stmt1->bindValue(':publisher', $publisher, PDO::PARAM_STR);
     $stmt1->bindValue(':gamedate', $gamedate, PDO::PARAM_STR);
