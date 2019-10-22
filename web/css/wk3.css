@@ -12,6 +12,11 @@
     border-collapse: collapse; 
     border: 1px solid #000000; 
   }
+  th
+  {
+    border-collapse: collapse; 
+    border: 1px solid #000000; 
+  }
 
   td {
     border-collapse: collapse; 

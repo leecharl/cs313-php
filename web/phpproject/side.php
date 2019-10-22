@@ -3,7 +3,7 @@ $sesuserID = $_SESSION["userCheck"];
 ?>
    
 <h2>Your Games</h2>
-    
+<div class="fakeimg">
 <table>
   <tr>
     <th>Game</th>
@@ -42,5 +42,5 @@ $sesuserID = $_SESSION["userCheck"];
       echo "</tr>";
     }
   ?>
-
+</div>   
 </table>
