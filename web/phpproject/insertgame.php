@@ -6,23 +6,27 @@
 <?php
     $title = htmlspecialchars($_POST['title']);
     $publisher = htmlspecialchars($_POST['publisher']);
-    //$yearPublished = htmlspecialchars($_POST['yearPublished']);
+    $yearPublished = htmlspecialchars($_POST['yearPublished']);
     $bgg_link = htmlspecialchars($_POST['url']);
 
     require('database.php');
+    echo $title. "<br>";
+    echo $publisher. "<br>";
+    echo $yearPublished. "<br>";
+    echo $bgg_link. "<br>";
 
-    $db = getDB();
+//     $db = getDB();
 
-    $stmt = $db->prepare('INSERT INTO games(title, publisher, published_year, date_added, bgg_link, usersid) 
-    VALUES (:title, :publisher, "2019", now(), :bgg_link, 1;');
-    $stmt->bindValue(':title', $title, PDO::PARAM_STR);
-    $stmt->bindValue(':publisher', $publisher, PDO::PARAM_STR);
-   // $stmt->bindValue(':yearPublished', $yearPublished, PDO::PARAM_INT);
-    $stmt->bindValue(':bgg_link', $bgg_link, PDO::PARAM_STR);
+//     $stmt1 = $db->prepare('INSERT INTO games(title, publisher, published_year, date_added, bgg_link, usersid) 
+//     VALUES (:title, :publisher, "2019", now(), :bgg_link, 1;');
+//     $stmt1->bindValue(':title', $title, PDO::PARAM_STR);
+//     $stmt1->bindValue(':publisher', $publisher, PDO::PARAM_STR);
+//    // $stmt->bindValue(':yearPublished', $yearPublished, PDO::PARAM_INT);
+//     $stmt1->bindValue(':bgg_link', $bgg_link, PDO::PARAM_STR);
 
-    $stmt->execute();
-    $new_page = "index.php";
-    header("Location: $new_page");
-    die();
+//     $stmt1->execute();
+//     $new_page = "index.php";
+//     header("Location: $new_page");
+//     die();
 ?>
 
