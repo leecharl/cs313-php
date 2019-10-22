@@ -7,6 +7,9 @@
     $title = htmlspecialchars($_POST["title"]);
     $publisher = htmlspecialchars($_POST["publisher"]);
     $bgg_link = htmlspecialchars($_POST["url"]);
+    $date = now();
+    $time = strtotime($date);
+    $newformat = date('Y-m-d',$time);
 
     require('database.php');
     echo $title. "<br>";
@@ -16,9 +19,10 @@
     $db = getDB();
 
     $stmt1 = $db->prepare('INSERT INTO games(title, publisher, date_added, bgg_link, usersid) 
-    VALUES (:title, :publisher, now(), :bgg_link, 1;');
+    VALUES (:title, :publisher, :newformat, :bgg_link, 1;');
     $stmt1->bindValue(':title', $title, PDO::PARAM_STR);
     $stmt1->bindValue(':publisher', $publisher, PDO::PARAM_STR);
+    $stmt->bindValue(':newformat', $newformat, PDO::PARAM_STR);
     $stmt1->bindValue(':bgg_link', $bgg_link, PDO::PARAM_STR);
 
     $stmt1->execute();
