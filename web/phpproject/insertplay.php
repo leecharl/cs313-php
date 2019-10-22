@@ -1,31 +1,30 @@
 <pre>
 <?php var_dump($_POST);?>
 </pre>
+
 <?php include 'debug.php';?>
-
 <?php
-
-$game_id = htmlspecialchars($_POST['gameID']);
-$game_played_date = $_POST['game_played_date'];
-$time = strtotime($game_played_date);
-$newformat = date('Y-m-d',$time);
-
-
-echo "debug stuff <br>";
-echo $newformat . "<br>";
-echo $game_id . "<br>";
+    $game_id = htmlspecialchars($_POST["gameID"]);
+    $game_played_date = $_POST["game_played_date"];
+    $time = strtotime($game_played_date);
+    $newformat = date('Y-m-d',$time);
 
 
-require('database.php');
+    echo "debug stuff <br>";
+    echo $newformat . "<br>";
+    echo $game_id . "<br>";
 
-$db = getDB();
 
-$stmt = $db->prepare('INSERT INTO game_played(game_played_date, usersid, gameid) VALUES (:newformat, 1, :game_id);');
-$stmt->bindValue(':game_id', $game_id, PDO::PARAM_INT);
-$stmt->bindValue(':newformat', $newformat, PDO::PARAM_STR);
-$stmt->execute();
-$new_page = "gameplays.php?gameID=$game_id";
-header("Location: $new_page");
-die();
+    require('database.php');
+
+    $db = getDB();
+
+    $stmt = $db->prepare('INSERT INTO game_played(game_played_date, usersid, gameid) VALUES (:newformat, 1, :game_id);');
+    $stmt->bindValue(':game_id', $game_id, PDO::PARAM_INT);
+    $stmt->bindValue(':newformat', $newformat, PDO::PARAM_STR);
+    $stmt->execute();
+    $new_page = "gameplays.php?gameID=$game_id";
+    header("Location: $new_page");
+    die();
 ?>
 

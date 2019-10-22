@@ -4,9 +4,9 @@
 
 <?php include 'debug.php';?>
 <?php
-    $title = htmlspecialchars($_POST['title']);
-    $publisher = htmlspecialchars($_POST['publisher']);
-    $bgg_link = htmlspecialchars($_POST['url']);
+    $title = htmlspecialchars($_POST["title"]);
+    $publisher = htmlspecialchars($_POST["publisher"]);
+    $bgg_link = htmlspecialchars($_POST["url"]);
 
     require('database.php');
     echo $title. "<br>";
