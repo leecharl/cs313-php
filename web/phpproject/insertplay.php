@@ -18,7 +18,7 @@ echo $game_id . "<br>";
 
 require('database.php');
 
-$db = get_db();
+$db = getDB();
 
 $stmt = $db->prepare('INSERT INTO game_played(game_played_date, usersid, gameid) VALUES (:newformat, 1, :game_id);');
 $stmt->bindValue(':game_id', $game_id, PDO::PARAM_INT);
