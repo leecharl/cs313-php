@@ -7,7 +7,7 @@
     $title = htmlspecialchars($_POST["title"]);
     $publisher = htmlspecialchars($_POST["publisher"]);
     $bgg_link = htmlspecialchars($_POST["url"]);
-    $date = now();
+    $date = date("Y-m-d");
     $time = strtotime($date);
     $newformat = date('Y-m-d',$time);
 
