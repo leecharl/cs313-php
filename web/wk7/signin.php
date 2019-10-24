@@ -1,6 +1,7 @@
 <?php
 var_dump($_POST);
-
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
     $username = htmlspecialchars($_POST["username"]);
     $password = htmlspecialchars($_POST["password"]);
