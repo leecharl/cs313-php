@@ -19,7 +19,7 @@ ini_set("display_errors", 1);
         echo "db password: ".  $row["password"];
         echo "entered hash password: " . $hashed_password;
         echo "<br>";
-        if(password_verify($hashed_password, $row["password"])){
+        if(password_verify($password, $row["password"])){
             // $new_page = "welcome.php";
             // header("Location: $new_page");
             echo "Cool stuff You got it";
