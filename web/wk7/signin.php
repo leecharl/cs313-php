@@ -12,7 +12,8 @@ var_dump($_POST);
     $query->execute(array(":username" => $username));
     $rows = $query->fetchALL(PDO::FETCH_ASSOC);
  
-    
+    foreach($rows as $row) 
+    {
         if(password_verify($hashed_password, $row["password"])){
             // $new_page = "welcome.php";
             // header("Location: $new_page");
@@ -22,16 +23,7 @@ var_dump($_POST);
         }else{
             echo "Bad Username/Password";
         }
+    }
     
-    $db = getDB();
-    $stmt1 = $db->prepare('INSERT INTO wk7users(username, password) 
-    VALUES (:username, :hashed_password);');
-    $stmt1->bindValue(':username', $username, PDO::PARAM_STR);
-    $stmt1->bindValue(':hashed_password', $hashed_password, PDO::PARAM_STR);
-
-    $stmt1->execute();
     
-    die();
-
-
 ?>
