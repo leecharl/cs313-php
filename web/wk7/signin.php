@@ -9,7 +9,7 @@ ini_set("display_errors", 1);
 
     require('database.php');
     $db = getDB();
-    $query = $db->prepare('SELECT username, password FROM wk7users where username = :username order by title asc');
+    $query = $db->prepare('SELECT username, password FROM wk7users where username = :username');
     $query->execute(array(":username" => $username));
     $rows = $query->fetchALL(PDO::FETCH_ASSOC);
  
