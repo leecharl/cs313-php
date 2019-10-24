@@ -17,7 +17,7 @@
 <body>
     <div>
         <h3>Sign in</h3>
-        <form method="post" action="newuser.php">
+        <form method="post" action="signin.php">
             <div class="form-group">
                 <label for="username">Username: </label>
                 <input id="username" class="form-control" type="text" name="username">
