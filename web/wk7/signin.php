@@ -14,6 +14,7 @@ var_dump($_POST);
  
     foreach($rows as $row) 
     {
+        echo "did it work?";
         if(password_verify($hashed_password, $row["password"])){
             // $new_page = "welcome.php";
             // header("Location: $new_page");
