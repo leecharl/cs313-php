@@ -15,7 +15,10 @@ ini_set("display_errors", 1);
  
     foreach($rows as $row) 
     {
-        echo "did it work?";
+        echo "did it work?<br>";
+        echo "db password: ".  $row["password"];
+        echo "entered hash password: " . $hashed_password;
+        echo "<br>";
         if(password_verify($hashed_password, $row["password"])){
             // $new_page = "welcome.php";
             // header("Location: $new_page");
