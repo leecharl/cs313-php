@@ -1,5 +1,5 @@
 <?php
-//var_dump($_POST);
+var_dump($_POST);
 
 
     $username = htmlspecialchars($_POST["username"]);
@@ -13,11 +13,14 @@
     $rows = $query->fetchALL(PDO::FETCH_ASSOC);
  
     
-        if(password_verify($password, $row["password"])){
-            $new_page = "welcome.php";
-            header("Location: $new_page");
+        if(password_verify($hashed_password, $row["password"])){
+            // $new_page = "welcome.php";
+            // header("Location: $new_page");
+            echo "Cool stuff You got it";
 
 
+        }else{
+            echo "Bad Username/Password";
         }
     
     $db = getDB();
