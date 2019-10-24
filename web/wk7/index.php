@@ -16,16 +16,19 @@
 
 <body>
     <div>
+        <h3>Sign in</h3>
         <form method="post" action="newuser.php">
             <div class="form-group">
                 <label for="username">Username: </label>
                 <input id="username" class="form-control" type="text" name="username">
             </div>
             <div class="form-group">
-                <label for="password">password</label>
+                <label for="password">Password: </label>
                 <input id="password" class="form-control" type="password" name="password">
             </div>
+            <button value="submit">Log in</button>
         </form>
+        <h6><a href="signup.php">Sign Up</a></h6>
     </div>
 
   
